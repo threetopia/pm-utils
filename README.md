@@ -1,7 +1,7 @@
 # Custom Linux Power Management Utilitites
 
 ## Description
-This is Custom Power Management Utilities used to control power management in linux os. This scrpit mostly useful when using in laptop.
+This is Custom Power Management Utilities used to control power management in linux os. This script mostly useful when using in laptop, and it will automatically switch when on AC or Battery.
 
 ## Requirement
 - Linux OS
