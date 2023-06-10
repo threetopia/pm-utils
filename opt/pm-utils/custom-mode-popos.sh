@@ -11,15 +11,15 @@ set_display_brightness_acpi() {
 # Edit to meet your disire config
 laptop_mode_ac() {
 	sleep 1
-        set_display_brightness_acpi 29472
         /bin/system76-power profile balanced
+        set_display_brightness_acpi 29472
 }
 
 # Edit to meet your disire config
 laptop_mode_battery() {
         sleep 1
-	#set_display_brightness_acpi 24720
         /bin/system76-power profile battery
+	#set_display_brightness_acpi 24720
 }
 
 case $ONLINE_STATUS in

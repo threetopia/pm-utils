@@ -11,7 +11,7 @@ This is Custom Power Management Utilities used to control power management in li
 ## Installation
 1. Create directory `/opt/pm-utils`.
 ```
-sudo mkdir /opt/pm-utils && sudo chown $USER:root /opt/pm-utils && sudo chmod 755 /opt/pm-util
+sudo mkdir /opt/pm-utils && sudo chown $USER:root /opt/pm-utils && sudo chmod 775 /opt/pm-utils
 ```
 2. Copy file under `opt/pm-utils/` into `/opt/pm-utils/custom-mode.sh` directory in your system. **Choose only one which system you are have**:
 - File with wording **ipstate** (`custom-mode-ipstate.sh`) used for system that have *intel pstate*.

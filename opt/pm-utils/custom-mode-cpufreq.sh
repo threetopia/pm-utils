@@ -65,7 +65,7 @@ send_osd_notification()
 
 # Edit to meet your disire config
 laptop_mode_ac() {
-	set_cpu_governor powersave
+	set_cpu_governor ondemand
 	set_scaling_max_freq 2201000
 	set_scaling_min_freq 500000
 	set_boost 1
@@ -77,7 +77,7 @@ laptop_mode_ac() {
 
 # Edit to meet your disire config
 laptop_mode_battery() {
-	set_cpu_governor powersave
+	set_cpu_governor conservative
 	set_scaling_max_freq 1200000
 	set_scaling_min_freq 500000
 	set_boost 0
