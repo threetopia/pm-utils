@@ -51,7 +51,7 @@ sudo systemctl daemon-reload && sudo udevadm control --reload
 ### System not using systemd but have udev
 1. Copy file under `etc/udev/rules.d/99-pm-utils.generic.rules` into `/etc/udev/rules.d/99-pm-utils.rules`.
 ```
-sudo cp ./etc/udev/rules.d/99-pm-utils.service.rules /etc/udev/rules.d/99-pm-utils.rules
+sudo cp ./etc/udev/rules.d/99-pm-utils.generic.rules /etc/udev/rules.d/99-pm-utils.rules
 ```
 
 2. Run the following command in your terminal "`sudo udevadm control --reload`".
