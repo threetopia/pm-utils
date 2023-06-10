@@ -1,0 +1,6 @@
+[Unit]
+Description=Custom Power Management Utilities
+
+[Service]
+Type=oneshot
+ExecStart=/opt/pm-utils/custom-mode.sh
