@@ -59,6 +59,9 @@ sudo cp ./etc/udev/rules.d/99-pm-utils.service.rules /etc/udev/rules.d/99-pm-uti
 sudo udevadm control --reload
 ```
 
+## NOTES
+You may edit the value inside `/opt/pm-utils/custom-mode.sh` with your desire values. Or correct the path inside the script file with the correct value and path from your system.
+
 ## License
 Open LICENSE file.
 
