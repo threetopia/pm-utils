@@ -26,7 +26,7 @@ cp ./opt/pm-utils/custom-mode-popos.sh /opt/pm-utils/custom-mode.sh
 ```
 cp ./opt/pm-utils/custom-mode-cpufreq.sh /opt/pm-utils/custom-mode.sh
 ```
-- Make sure the script name is `custom-mode.sh`, and set the permission into executable.
+3. Make sure the script name is `custom-mode.sh`, and set the permission into executable.
 ```
 sudo chmod 755 /opt/pm-utils/custom-mode.sh
 ```
@@ -45,18 +45,18 @@ sudo cp ./etc/udev/rules.d/99-pm-utils.service.rules /etc/udev/rules.d/99-pm-uti
 
 3. Run the following command in your terminal "`sudo systemctl daemon-reload`" and the run "`sudo udevadm control --reload`".
 ```
-sudo cp ./etc/udev/rules.d/99-pm-utils.service.rules /etc/udev/rules.d/99-pm-utils.rules
+sudo systemctl daemon-reload && sudo udevadm control --reload
 ```
 
 ### System not using systemd but have udev
-1. Copy file under `etc/udev/rules.d/99-pm-utils.service.rules` into `/etc/udev/rules.d/99-pm-utils.rules`.
+1. Copy file under `etc/udev/rules.d/99-pm-utils.generic.rules` into `/etc/udev/rules.d/99-pm-utils.rules`.
 ```
 sudo cp ./etc/udev/rules.d/99-pm-utils.service.rules /etc/udev/rules.d/99-pm-utils.rules
 ```
 
-2. Run the following command in your terminal "`sudo systemctl daemon-reload`" and the run "`sudo udevadm control --reload`".
+2. Run the following command in your terminal "`sudo udevadm control --reload`".
 ```
-sudo cp ./etc/udev/rules.d/99-pm-utils.service.rules /etc/udev/rules.d/99-pm-utils.rules
+sudo udevadm control --reload
 ```
 
 ## License
