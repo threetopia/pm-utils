@@ -28,7 +28,7 @@ cp ./opt/pm-utils/custom-mode-cpufreq.sh /opt/pm-utils/custom-mode.sh
 ```
 3. Make sure the script name is `custom-mode.sh`, and set the permission into executable.
 ```
-sudo chmod 755 /opt/pm-utils/custom-mode.sh
+sudo chmod 775 /opt/pm-utils/custom-mode.sh
 ```
 
 ### System using systemd and udev
