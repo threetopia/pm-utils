@@ -14,6 +14,10 @@ This is Custom Power Management Utilities used to control power management in li
 sudo mkdir /opt/pm-utils && sudo chown $USER:root /opt/pm-utils && sudo chmod 775 /opt/pm-utils
 ```
 2. Copy file under `opt/pm-utils/` into `/opt/pm-utils/custom-mode.sh` directory in your system. **Choose only one which system you are have**:
+- File with wording **power-profiles** (`custom-mode-power-profiles.sh`) used for system that have *power profile daemon*.
+```
+cp ./opt/pm-utils/custom-mode-power-profiles.sh /opt/pm-utils/custom-mode.sh
+```
 - File with wording **ipstate** (`custom-mode-ipstate.sh`) used for system that have *intel pstate*.
 ```
 cp ./opt/pm-utils/custom-mode-ipstate.sh /opt/pm-utils/custom-mode.sh
