@@ -36,29 +36,29 @@ sudo chmod 775 /opt/pm-utils/custom-mode.sh
 ```
 
 ### System using systemd and udev
-1. Copy file under `usr/lib/systemd/system/pm-utils.service` into `/usr/lib/systemd/system/pm-utils.service` directory in your system.
+4. Copy file under `usr/lib/systemd/system/pm-utils.service` into `/usr/lib/systemd/system/pm-utils.service` directory in your system.
 ```
 sudo cp ./usr/lib/systemd/system/pm-utils.service /usr/lib/systemd/system/pm-utils.service
 ```
 
-2. Copy file under `etc/udev/rules.d/99-pm-utils.service.rules` into `/etc/udev/rules.d/99-pm-utils.rules`.
+5. Copy file under `etc/udev/rules.d/99-pm-utils.service.rules` into `/etc/udev/rules.d/99-pm-utils.rules`.
 
 ```
 sudo cp ./etc/udev/rules.d/99-pm-utils.service.rules /etc/udev/rules.d/99-pm-utils.rules
 ```
 
-3. Run the following command in your terminal "`sudo systemctl daemon-reload`" and the run "`sudo udevadm control --reload`".
+6. Run the following command in your terminal "`sudo systemctl daemon-reload`" and the run "`sudo udevadm control --reload`".
 ```
 sudo systemctl daemon-reload && sudo udevadm control --reload
 ```
 
 ### System not using systemd but have udev
-1. Copy file under `etc/udev/rules.d/99-pm-utils.generic.rules` into `/etc/udev/rules.d/99-pm-utils.rules`.
+4. Copy file under `etc/udev/rules.d/99-pm-utils.generic.rules` into `/etc/udev/rules.d/99-pm-utils.rules`.
 ```
 sudo cp ./etc/udev/rules.d/99-pm-utils.generic.rules /etc/udev/rules.d/99-pm-utils.rules
 ```
 
-2. Run the following command in your terminal "`sudo udevadm control --reload`".
+5. Run the following command in your terminal "`sudo udevadm control --reload`".
 ```
 sudo udevadm control --reload
 ```
