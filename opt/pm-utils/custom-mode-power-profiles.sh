@@ -32,7 +32,6 @@ set_cpu_noturbo() {
     elif [ "$CPU_VENDOR" = "AuthenticAMD" ]; then
         FILE="/sys/devices/system/cpu/cpufreq/boost"
     fi
-    echo "$FILE"
     [ -w "$FILE" ] && echo "$1" | sudo tee "$FILE"
 }
 
