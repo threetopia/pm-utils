@@ -60,6 +60,22 @@ set_power_profile() {
     /usr/bin/powerprofilesctl set "$1"
 }
 
+# Send OSD Notification
+send_osd_notification() {
+    local username=$(logname)  # get the user running the session
+    local uid=$(id -u "$username")
+    local display=$(w -hs | awk -v user="$username" '$1 == user { print $2; exit }')
+    local dbus_address=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pgrep -u "$username" gnome-session | head -n1)/environ | sed -e 's/DBUS_SESSION_BUS_ADDRESS=//' -e 's/\x0//g')
+
+    if [ -z "$dbus_address" ]; then
+        echo "⚠️  Could not determine DBUS session address. Notification skipped."
+        return
+    fi
+
+    sudo -u "$username" DISPLAY=":$display" DBUS_SESSION_BUS_ADDRESS="$dbus_address" \
+        notify-send "Power Management" "Power mode changed to $1"
+}
+
 # Define your custom AC mode here
 laptop_mode_ac() {
     sleep 1
@@ -84,7 +100,9 @@ laptop_mode_battery() {
 if [ "$ONLINE_STATUS" = "1" ]; then
     echo "Running on AC power"
     laptop_mode_ac
+    send_osd_notification "AC Mode"
 else
     echo "Running on battery"
     laptop_mode_battery
+    send_osd_notification "Battery Mode"
 fi
