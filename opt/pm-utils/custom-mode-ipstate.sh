@@ -44,11 +44,22 @@ set_hdparm_idletime()
 	hdparm -S $1 /dev/sda	
 }
 
-#cat /sys/class/backlight/acpi_video0/brightness
-#4 to 15
-set_display_brightness_acpi() {
-	#sleep 3
-	echo $1 | sudo tee /sys/class/backlight/acpi_video0/brightness
+# Find available backlight device
+detect_backlight_path() {
+    for dir in /sys/class/backlight/*; do
+        [ -w "$dir/brightness" ] && echo "$dir" && return 0
+    done
+    return 1
+}
+
+# Set brightness level
+set_display_brightness() {
+    BACKLIGHT_PATH=$(detect_backlight_path)
+    if [ -n "$BACKLIGHT_PATH" ]; then
+        echo "$1" | sudo tee "$BACKLIGHT_PATH/brightness"
+    else
+        echo "No writable backlight path found." >&2
+    fi
 }
 
 send_osd_notification()
@@ -64,7 +75,7 @@ laptop_mode_ac() {
 	set_cpu_noturbo 0
 	set_hdparm_apm 127
 	set_hdparm_idletime 241
-	set_display_brightness_acpi 11
+	set_display_brightness 11
 	#send_osd_notification AC
 }
 
@@ -76,7 +87,7 @@ laptop_mode_battery() {
 	set_cpu_noturbo 1
 	set_hdparm_apm 127
 	set_hdparm_idletime 120
-	set_display_brightness_acpi 7
+	set_display_brightness 7
 	#send_osd_notification Battery
 }
 

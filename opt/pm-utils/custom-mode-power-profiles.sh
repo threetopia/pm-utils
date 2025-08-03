@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get power status: 1 = on AC, 0 = on battery
-ONLINE_STATUS=$(cat /sys/class/power_supply/AC/online 2>/dev/null)
+ONLINE_STATUS=$(cat /sys/class/power_supply/ADP1/online 2>/dev/null)
 
 # Detect CPU vendor
 CPU_VENDOR=$(lscpu -J | jq -r '.lscpu[] | select(.field=="Vendor ID:") | .data')
@@ -26,7 +26,6 @@ set_display_brightness() {
 
 # Disable turbo boost 
 set_cpu_noturbo() {
-    echo "Detected CPU_VENDOR: '$CPU_VENDOR'"
     if [ "$CPU_VENDOR" = "GenuineIntel" ]; then
         FILE="/sys/devices/system/cpu/intel_pstate/no_turbo"
     elif [ "$CPU_VENDOR" = "AuthenticAMD" ]; then
