@@ -80,8 +80,8 @@ laptop_mode_ac() {
     sleep 1
     set_power_profile balanced
     set_cpu_noturbo 1
-    set_cpu_max_perf_pct 100
-    set_cpu_min_perf_pct 15
+    # set_cpu_max_perf_pct 100
+    # set_cpu_min_perf_pct 15
     set_display_brightness 24720  # Adjust value depending on device
 }
 
@@ -90,8 +90,8 @@ laptop_mode_battery() {
     sleep 1
     set_power_profile power-saver
     set_cpu_noturbo 1
-    set_cpu_max_perf_pct 50
-    set_cpu_min_perf_pct 10
+    # set_cpu_max_perf_pct 50
+    # set_cpu_min_perf_pct 10
     set_display_brightness 19968  # Dim for power saving
 }
 
@@ -105,3 +105,5 @@ else
     laptop_mode_battery
     send_osd_notification "Battery Mode"
 fi
+
+exit 0

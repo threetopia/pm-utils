@@ -1,2 +1,1 @@
-KERNEL=="AC", SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="/usr/bin/systemctl --no-block start pm-utils.service"
-KERNEL=="AC", SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="/usr/bin/systemctl --no-block start pm-utils.service"
+KERNEL=="AC", SUBSYSTEM=="power_supply", RUN+="/usr/bin/systemctl --no-block start pm-utils.service"
