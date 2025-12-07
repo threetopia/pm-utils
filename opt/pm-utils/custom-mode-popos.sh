@@ -60,7 +60,7 @@ laptop_mode_ac() {
 	sleep 1
         set_cpu_noturbo 1
         set_power_profile balanced
-        set_display_brightness_acpi 29472
+        set_display_brightness 29472
 }
 
 # Edit to meet your disire config
@@ -68,7 +68,7 @@ laptop_mode_battery() {
         sleep 1
         set_cpu_noturbo 1
         set_power_profile battery
-        set_display_brightness_acpi 19968
+        set_display_brightness 19968
 }
 
 # MAIN LOGIC
